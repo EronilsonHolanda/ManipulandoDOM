@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+</head>
+<script>
+    function keyPressed(input){
+        var inputText = input.value.split('');
+
+        var letterInputTAG = document.getElementById("letters");
+        var numberInputTAG = document.getElementById("numbers");
+
+        var letters = [];
+        var numbers = [];
+
+        for (var index = 0; index < inputText.length; index++) {
+            var letter = inputText[index];
+            
+            if(isNaN(letter)) {
+                letters.push(letter);
+            } else {
+                numbers.push(letter);
+            }
+        }
+
+        letterInputTAG.value = letters.toString();
+        numberInputTAG.value = numbers.toString();
+    }
+</script>
+<style>
+    body {
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 30px;
+    }
+
+    .campodetexto {
+        margin: 20px;
+    }
+
+    .caixa {
+        margin:  10px;
+    }
+
+    input {
+        padding: 5px;
+    }
+</style>
+<body>
+    <h1>Manipulando valores de inputs (text)</h1>
+    <input
+        type="text"
+        placeholder="Digite um caracter aqui"
+        id="user_input"
+        class="campodetexto"
+        onkeypress="keyPressed(this)"
+    >
+    <div class="caixa">
+        <label for="letters">Letras:</label>
+        <input type="text" disabled id="letters">
+    </div>
+    <div class="caixa">
+        <label for="numbers">Números:</label>
+        <input type="text" disabled id="numbers">
+    </div>
+</body>
+</html>
